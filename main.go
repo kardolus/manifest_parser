@@ -42,7 +42,6 @@ func main() {
 		log.Fatal("Unable to unmarshal", err.Error())
 	}
 
-	// TODO iterate and run script
 	for i, dep := range data.Dependencies {
 		if dep.Source != "" && dep.SourceSha256 == "" {
 			cmd := exec.Command("sh", "getsha.sh", dep.Source)
@@ -86,9 +85,4 @@ type Manifest struct {
 		SourceSha256 string   `yaml:"source_sha256,omitempty"`
 	} `yaml:"dependencies"`
 	IncludeFiles []string `yaml:"include_files"`
-}
-
-type BuildpackMetadata struct {
-	Language string `yaml:"language"`
-	Version  string `yaml:"version"`
 }
