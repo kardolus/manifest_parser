@@ -85,4 +85,5 @@ type Manifest struct {
 		SourceSha256 string   `yaml:"source_sha256,omitempty"`
 	} `yaml:"dependencies"`
 	IncludeFiles []string `yaml:"include_files"`
+	PrePackage string `yaml:"pre_package"`
 }
